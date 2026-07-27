@@ -26,15 +26,13 @@ function renderizarPerfil(aluno){
 
     const itensDesempenho = aluno.desempenho
         .map(item => `
-            <li class="item-nota">
-                <div class="cabecalho-nota">
-                    <span>${item.categoria}</span>
-                    <strong>${item.valor}</strong>
+            <div class="barra-item">
+                <span class="valor-nota ${definirCorNota(item.valor)}">${item.valor}</span>
+                <div class="barra-trilho">
+                    <div class="barra-preenchida ${definirCorNota(item.valor)}" style="height: ${item.valor}%"></div>
                 </div>
-                <div class="barra-fundo">
-                    <div class="barra-preenchida" style="width: ${item.valor}%"></div>
-                </div>
-            </li>
+                <span class="categoria-nota">${item.categoria}</span>
+            </div>
         `)
         .join('')
 

@@ -40,6 +40,13 @@ function criarCardAluno(aluno){
     return card
 }
 
+function definirCorNota(valor){
+    if (valor < 50) return 'nota-baixa'
+    if (valor < 70) return 'nota-media'
+    return 'nota-alta'
+}
+
+
 function renderizarAlunos(alunos){
     const conteiner = document.getElementById('lista-alunos')
     conteiner.textContent = ''
