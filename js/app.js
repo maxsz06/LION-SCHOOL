@@ -34,12 +34,15 @@ function criarCardAluno(aluno){
         <h3>${aluno.nome}</h3>
         <p class="media">Média: ${media}</p>
     `
+    card.addEventListener('click', ()=>{
+        window.location.href = `aluno.html?id=${aluno.id}`
+    })
     return card
 }
 
 function renderizarAlunos(alunos){
     const conteiner = document.getElementById('lista-alunos')
-    conteiner.innerHTML = ''
+    conteiner.textContent = ''
 
     alunos.forEach(aluno => {
         const card = criarCardAluno(aluno)
