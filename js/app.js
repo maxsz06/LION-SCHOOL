@@ -4,6 +4,7 @@ import { getUsuarios } from "./usuarios.js"
 
 async function carregarAlunos() {
     const alunos = await getUsuarios()
+    console.log( await getUsuarios())
     renderizarAlunos(alunos)
 }
 
