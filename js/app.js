@@ -4,8 +4,18 @@ import { getUsuarios } from "./usuarios.js"
 
 async function carregarAlunos() {
     const alunos = await getUsuarios()
-    console.log( await getUsuarios())
-    renderizarAlunos(alunos)
+    const cursoId = pegarCursoId()
+    const alunosFiltrados = filtrarPorCurso(alunos, cursoId)
+    renderizarAlunos(alunosFiltrados)
+}
+
+function pegarCursoId(){
+    const params = new URLSearchParams(window.location.search)
+    return Number(params.get('curso'))
+}
+
+function filtrarPorCurso(alunos, cursoId){
+    return alunos.filter(aluno => aluno.curso_id === cursoId)
 }
 
 function calcularMedia(desempenho){
@@ -24,7 +34,6 @@ function criarCardAluno(aluno){
         <h3>${aluno.nome}</h3>
         <p class="media">Média: ${media}</p>
     `
-
     return card
 }
 
