@@ -143,6 +143,22 @@ main {
     height: 18px;
 }
 
+#lista-alunos {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 24px;
+    max-width: 1200px;
+    max-height: 720px;
+    margin: 40px auto;
+    padding: 24px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+    border-radius: 16px;
+    box-shadow: inset 0 0  12px rbga(0, 0, 0, 0.06);
+}
+
+
+
 /* ===================== RESPONSIVIDADE ===================== */
 
 /* Tablets (até 1024px) */
