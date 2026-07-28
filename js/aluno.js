@@ -5,11 +5,10 @@ import { getUsuarios } from "./usuarios.js"
 async function carregarPerfil() {
     const alunos = await getUsuarios()
     const alunoId = pegarAlunoId()
-    console.log(alunoId)
     const aluno = alunos.find(a => a.id === alunoId)
 
     if (!aluno) {
-        document.getElementById('perfil-aluno').innerHTML = '<p>Aluno não encontrado.</p>'
+        document.getElementById('perfil-aluno').h1 = '<p>Aluno não encontrado.</p>'
         return
     }
 
@@ -21,10 +20,16 @@ function pegarAlunoId(){
     return Number(params.get('id'))
 }
 
+function definirCorNota(valor){
+    if (valor < 50) return 'nota-baixa'
+    if (valor < 70) return 'nota-media'
+    return 'nota-alta'
+}
+
 function renderizarPerfil(aluno){
     const container = document.getElementById('perfil-aluno')
 
-    const itensDesempenho = aluno.desempenho
+    const barras = aluno.desempenho
         .map(item => `
             <div class="barra-item">
                 <span class="valor-nota ${definirCorNota(item.valor)}">${item.valor}</span>
@@ -37,10 +42,15 @@ function renderizarPerfil(aluno){
         .join('')
 
     container.innerHTML = `
-        <img src="${aluno.foto}" alt="${aluno.nome}">
-        <h2>${aluno.nome}</h2>
-        <span class="status ${aluno.status}">${aluno.status}</span>
-        <ul class="lista-desempenho">${itensDesempenho}</ul>
+        <div class="card-foto">
+            <img src="${aluno.foto}" alt="${aluno.nome}">
+            <h2>${aluno.nome}</h2>
+        </div>
+        <div class="card-grafico">
+            <div class="grafico-barras">
+                ${barras}
+            </div>
+        </div>
     `
 }
 

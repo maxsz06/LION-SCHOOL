@@ -143,6 +143,131 @@ main {
     height: 18px;
 }
 
+
+#perfil-aluno {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 24px;
+}
+
+.card-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+    max-width: 400px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-foto img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-foto h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3347B0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-grafico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    max-width: 500px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.grafico-barras {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    height: 280px;
+    width: 100%;
+}
+
+.barra-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 10px;
+}
+
+.valor-nota{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.barra-trilho {
+    display: flex;
+    align-items: flex-end;
+    width: 10px;
+    height: 100%;
+    background-color: #e8e8f5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.barra-preenchida {
+    width: 100%;
+    border-radius: 8px;
+    transition: height 0.4s ease;
+}
+
+.categoria-nota {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #3347B0;
+}
+
+.nota-alta{
+    color: #3347b0;
+}
+
+.barra-preenchida.nota-alta{
+    background-color: #3347B0;
+    box-shadow: 0 0 12px rgba(51, 71, 176, 0.5);
+}
+
+.nota-media{
+    color: #D9A441;
+}
+
+.barra-preenchida.nota-media{
+    background-color: #D9A441;
+    box-shadow: 0 0 12px rgba(51, 71, 176, 0.5);
+}
+
+.nota-baixa { 
+    color: #C0392B
+}
+
+
+.barra-preenchida.nota-baixa{
+    background-color: #C0392B;
+    box-shadow: 0 0 12px rgba(51, 71, 176, 0.5);
+}
+
 /* ===================== RESPONSIVIDADE ===================== */
 
 /* Tablets (até 1024px) */
@@ -251,5 +376,18 @@ main {
     .redes-sociais img {
         width: 15px;
         height: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    #perfil-aluno {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-foto,
+    .card-grafico {
+        max-width: 100%;
+        width: 100%;
     }
 }
