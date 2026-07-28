@@ -2,11 +2,14 @@
 
 import { getUsuarios } from "./usuarios.js"
 
-async function carregarAlunos() {
-    const alunos = await getUsuarios()
-    const cursoId = pegarCursoId()
-    const alunosFiltrados = filtrarPorCurso(alunos, cursoId)
-    renderizarAlunos(alunosFiltrados)
+let todosAlunos = []
+
+async function carregarAlunos() {   // Função Principal do projeto Responsavel por Carregar os alunos registrados
+    const alunos = await getUsuarios() // Entra na Função e com o await pega as informações da API e retorna em um objeto
+    const cursoId = pegarCursoId()     // Entra na Função dentro do arquivo e atraves de um objeto pega o id 
+    todosAlunos = filtrarPorCurso(alunos, cursoId)  // Função responsavel pelo fitro dos alunos por curso
+    renderizarAlunos(todosAlunos)  // 
+    configurarFiltroStatus()
 }
 
 function pegarCursoId(){
@@ -46,7 +49,6 @@ function definirCorNota(valor){
     return 'nota-alta'
 }
 
-
 function renderizarAlunos(alunos){
     const conteiner = document.getElementById('lista-alunos')
     conteiner.textContent = ''
@@ -55,6 +57,22 @@ function renderizarAlunos(alunos){
         const card = criarCardAluno(aluno)
         conteiner.appendChild(card)
     });
+}
+
+function configurarFiltroStatus(){
+    const itens = document.querySelectorAll('.filtro-status li')
+    const detalhes = document.querySelector('.filtro-status')
+
+    itens.forEach(item => {
+        item.addEventListener('click', () => {
+            const status = item.dataset.status
+            const alunosFiltrados = status
+                ? todosAlunos.filter(aluno => aluno.status === status)
+                : todosAlunos
+            renderizarAlunos(alunosFiltrados)
+            detalhes.removeAttribute('open')
+        })
+    })
 }
 
 carregarAlunos()

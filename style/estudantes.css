@@ -35,6 +35,85 @@ main {
     padding: 40px;
 }
 
+.barra-filtro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 32px;
+    background-color: #C5CAEB;
+}
+
+/* DROPDOWN DE STATUS */
+.filtro-status {
+    position: relative;
+    font-weight: 700;
+    color: #3347B0;
+}
+
+.filtro-status summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.filtro-status summary::-webkit-details-marker {
+    display: none;
+}
+
+.filtro-status ul {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    min-width: 140px;
+    background-color: #3347B0;
+    border-radius: 6px;
+    padding: 8px 0;
+    list-style: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.filtro-status li {
+    padding: 8px 16px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filtro-status li:hover {
+    background-color: #2a3a8f;
+}
+
+/* LEGENDA */
+.legenda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #3347B0;
+}
+
+.item-legenda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bolinha {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.bolinha.cursando {
+    background-color: #3347B0;
+}
+
+.bolinha.finalizado {
+    background-color: #D9A441;
+}
+
 .coluna-esquerda {
     display: flex;
     flex-direction: column;
