@@ -94,6 +94,13 @@ main {
     transform: scale(1.03);
 }
 
+.card-curso img {
+    width: 90px;
+    height: 90px;
+    filter: brightness(0) invert(1);
+}
+
+
 /* FOOTER */
 .footer {
     display: flex;
