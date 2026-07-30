@@ -1,6 +1,7 @@
 'use strict'
 
-import { getUsuarios } from "./usuarios.js"
+import { getUsuarios } from "./api/sever.js"
+
 
 async function carregarPerfil() {
     const alunos = await getUsuarios()

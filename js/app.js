@@ -1,6 +1,6 @@
 'use strict'
 
-import { getUsuarios } from "./usuarios.js"
+import { getUsuarios } from "./api/sever.js"
 
 let todosAlunos = []
 
